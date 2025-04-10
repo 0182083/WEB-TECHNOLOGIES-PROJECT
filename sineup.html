@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+</head>
+<body>
+
+    <div>
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <div>
+                <label for="newEmail">Email</label>
+                <input type="email" id="newEmail" name="email" required>
+                <span id="newEmailError"></span>
+            </div>
+
+            <div>
+                <label for="newPassword">Password</label>
+                <input type="password" id="newPassword" name="password" required>
+            </div>
+
+            <div>
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <span id="passwordError"></span>
+            </div>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <script src="signup.js"></script>
+
+</body>
+</html>
