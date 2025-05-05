@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shift Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Shift Assignment Dashboard</h1>
+ 
+  <div class="section">
+    <h2>Weekly Roster</h2>
+    <div class="shift-container">
+      <div class="staff" draggable="true" ondragstart="drag(event)" id="staff1">Alice</div>
+      <div class="staff" draggable="true" ondragstart="drag(event)" id="staff2">Bob</div>
+      <div class="shift-slot" ondrop="drop(event)" ondragover="allowDrop(event)">Monday</div>
+      <div class="shift-slot" ondrop="drop(event)" ondragover="allowDrop(event)">Tuesday</div>
+    </div>
+  </div>
+ 
+  <div class="section">
+    <h2>Availability Tracker</h2>
+    <label>Employee Name:
+      <input type="text" id="empName">
+    </label>
+    <label>Available Days:
+      <input type="text" id="availDays" placeholder="e.g., Mon, Wed, Fri">
+    </label>
+    <button onclick="saveAvailability()">Submit Availability</button>
+    <p id="availabilityOutput"></p>
+  </div>
+ 
+  <div class="section">
+    <h2>Shift Swap Board</h2>
+    <textarea placeholder="Request shift swaps here..." rows="4"></textarea>
+  </div>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
+ 

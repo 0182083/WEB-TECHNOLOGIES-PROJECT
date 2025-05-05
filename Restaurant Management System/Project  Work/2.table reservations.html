@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Table Reservation System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Table Reservation System</h1>
+ 
+    <div class="reservation-form">
+      <h2>Reserve Your Table</h2>
+      <form id="reservationForm">
+        <label for="name">Customer Name:</label>
+        <input type="text" id="name" name="name" required>
+ 
+        <label for="timeslot">Choose a Time Slot:</label>
+        <select id="timeslot" name="timeslot">
+          <option>6:00 PM</option>
+          <option>7:00 PM</option>
+          <option>8:00 PM</option>
+          <option>9:00 PM</option>
+        </select>
+ 
+        <label for="requests">Special Requests:</label>
+        <textarea id="requests" name="requests" rows="3"></textarea>
+ 
+        <button type="submit">Confirm Reservation</button>
+      </form>
+    </div>
+ 
+    <div class="info-box">
+      <h3>Hostess Actions</h3>
+      <ul>
+        <li>Click tables</li>
+        <li>Assign parties</li>
+        <li>Manage walk-ins</li>
+      </ul>
+ 
+      <h3>Customer Interaction</h3>
+      <p>Online time slot picker with special request field</p>
+      <p>Auto-sends confirmation SMS with QR code</p>
+    </div>
+  </div>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
+ 

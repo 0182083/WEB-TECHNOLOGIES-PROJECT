@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inventory Basics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Inventory Basics</h2>
+    <form id="inventoryForm">
+      <label for="ingredient">Ingredient Name:</label>
+      <input type="text" id="ingredient" required>
+ 
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" min="1" required>
+ 
+      <label for="parLevel">Par Level:</label>
+      <input type="number" id="parLevel" min="1" required>
+ 
+      <button type="submit">Submit</button>
+    </form>
+    <p id="message"></p>
+  </div>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
+ 
