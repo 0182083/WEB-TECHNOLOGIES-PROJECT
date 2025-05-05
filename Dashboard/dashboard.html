@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Restaurant Management System</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Dashboard</h1>
+      <div class="user-info">
+        <span>Welcome, <strong id="username"></strong></span>
+        <a href="../Login/login.html">Logout</a>
+      </div>
+    </header>
+
+  
+
+    <section class="quick-actions">
+      <h3>Quick Actions</h3>
+      <div class="actions">
+        <a href="../Order_Tracking/order_tracking.html" class="action-btn">Order Tracking</a>
+        <a href="../feedback/feedback.html" class="action-btn">Feedback</a>
+        <a href="../payment/payment.html" class="action-btn">Payment</a>
+        <a href="../sales report/sales.html" class="action-btn">Sales Report</a>
+        <a href="../Loyalty Program/loyalty.html" class="action-btn">Loyalty Program</a>
+      </div>
+    </section>
+
+    <section class="analytics">
+      <h3>Analytics Overview</h3>
+      <canvas id="salesChart" width="400" height="200"></canvas>
+      
+    
+      </div>
+    </section>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

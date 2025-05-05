@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Loyalty Program</title>
+  <link rel="stylesheet" href="loyalty.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Customer Loyalty Program</h2>
+
+    <div class="input-section">
+      <label>Name:</label>
+      <input type="text" id="customerName" />
+
+      <label>Date of Birth:</label>
+      <input type="date" id="dob" />
+
+      <label>Enter Purchase Amount ($):</label>
+      <input type="number" id="purchaseAmount" />
+
+      <button onclick="addPoints()">Add Points</button>
+    </div>
+
+    <div class="tracker">
+      <h3>Point Tracker</h3>
+      <p><strong>Name:</strong> <span id="trackerName">-</span></p>
+      <p><strong>Total Points:</strong> <span id="totalPoints">0</span></p>
+      <p id="birthdayReward" class="highlight"></p>
+    </div>
+
+    <div class="rewards">
+      <h3>Rewards Catalog</h3>
+      <ul>
+        <li>Free Coffee – 50 Points <button onclick="redeem(50)">Redeem</button></li>
+        <li>Free Dessert – 100 Points <button onclick="redeem(100)">Redeem</button></li>
+        <li>Meal Voucher – 200 Points <button onclick="redeem(200)">Redeem</button></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="loyalty.js"></script>
+</body>
+</html>

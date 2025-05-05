@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Customer Feedback</title>
+  <link rel="stylesheet" href="feedback.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Customer Feedback</h2>
+
+    <div class="feedback-form">
+      <label>Rate your experience:</label>
+      <div class="stars" id="starContainer">
+        ★★★★★
+      </div>
+
+      <textarea id="comment" placeholder="Leave your comment..."></textarea>
+      <button onclick="submitFeedback()">Submit</button>
+    </div>
+
+    <hr />
+
+    <div class="manager-dashboard">
+      <h3>Manager Review Dashboard</h3>
+      <div id="feedbackList"></div>
+    </div>
+  </div>
+
+  <script src="feedback.js"></script>
+</body>
+</html>

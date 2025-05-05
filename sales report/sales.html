@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sales Reports</title>
+  <link rel="stylesheet" href="sales.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Sales Reports Dashboard</h2>
+
+    <div class="filters">
+      <label>Select View:</label>
+      <select id="reportType" onchange="renderReport()">
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="item">By Menu Item</option>
+        <option value="server">By Server</option>
+        <option value="labor">Labor Cost</option>
+      </select>
+    </div>
+
+    <canvas id="salesChart" width="600" height="300"></canvas>
+
+    <button onclick="exportData()">Export to CSV</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="sales.js"></script>
+</body>
+</html>
