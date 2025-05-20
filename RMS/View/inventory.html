@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inventory Basics</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+    }
+    .inventory-container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .inventory-container h2 {
+      text-align: center;
+      color: #333;
+    }
+    .inventory-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .inventory-container button {
+      padding: 10px 20px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .alert {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="inventory-container">
+  <h2>Inventory Tracker</h2>
+  <label>Current Stock (Chicken):</label>
+  <input type="number" id="stock" value="5">
+  
+  <label>Delivery Amount:</label>
+  <input type="number" id="delivery" value="0">
+  
+  <label>Used in Recipe:</label>
+  <input type="number" id="used" value="0">
+  
+  <button onclick="updateStock()">Update Inventory</button>
+  
+  <p id="result"></p>
+  <p id="alert" class="alert"></p>
+</div>
+
+<script>
+  function updateStock() {
+    let stock = parseInt(document.getElementById('stock').value);
+    let delivery = parseInt(document.getElementById('delivery').value);
+    let used = parseInt(document.getElementById('used').value);
+
+    let updatedStock = stock + delivery - used;
+    document.getElementById('result').innerText = "Updated Stock: " + updatedStock;
+    
+    if (updatedStock < 3) {
+      document.getElementById('alert').innerText = "Low inventory alert: Chicken stock below par!";
+    } else {
+      document.getElementById('alert').innerText = "";
+    }
+
+    // Optional: update the input with new stock value
+    document.getElementById('stock').value = updatedStock;
+  }
+</script>
+
+</body>
+</html>
