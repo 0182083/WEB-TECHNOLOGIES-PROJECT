@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Authentication</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    h2 {
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .link {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #007bff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container" id="authForm">
+  <h2 id="formTitle">Login</h2>
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="submitForm()">Submit</button>
+  <div class="link" onclick="switchForm()">Don't have an account? Sign up</div>
+  <div class="link" onclick="forgotPassword()">Forgot password?</div>
+</div>
+
+<script>
+  let isLogin = true;
+
+  function switchForm() {
+    isLogin = !isLogin;
+    document.getElementById('formTitle').innerText = isLogin ? 'Login' : 'Sign Up';
+    document.querySelector('button').innerText = isLogin ? 'Login' : 'Register';
+    document.querySelector('.link').innerText = isLogin ? "Don't have an account? Sign up" : "Already have an account? Login";
+  }
+
+  function submitForm() {
+    const email = document.getElementById('email').value;
+    const pass = document.getElementById('password').value;
+
+    if (!email || !pass) {
+      alert("Please fill out all fields");
+      return;
+    }
+
+    if (isLogin) {
+      alert("Logging in with email: " + email);
+    } else {
+      alert("Registering with email: " + email + ". Please verify your email.");
+    }
+  }
+
+  function forgotPassword() {
+    const email = prompt("Enter your email to receive reset link:");
+    if (email) {
+      alert("A reset link has been sent to " + email);
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Menu</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    .menu-container {
+      display: flex;
+      gap: 30px;
+    }
+    .category {
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      width: 45%;
+    }
+    .item {
+      padding: 10px;
+      margin: 5px 0;
+      background: #e0f7fa;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: grab;
+    }
+    .item[data-type="vegan"] {
+      background: #d0ffd0;
+    }
+    .item[data-type="gluten-free"] {
+      background: #fff0b3;
+    }
+    #filter {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Digital Menu Editor</h2>
+
+<label for="filter">Filter by Dietary Tag:</label>
+<select id="filter" onchange="applyFilter()">
+  <option value="all">Show All</option>
+  <option value="vegan">Vegan</option>
+  <option value="gluten-free">Gluten-Free</option>
+</select>
+
+<div class="menu-container">
+  <div class="category" id="menu">
+    <h3>Available Items</h3>
+    <div class="item" draggable="true" data-type="vegan">Salad Bowl (Vegan)</div>
+    <div class="item" draggable="true" data-type="gluten-free">Grilled Chicken (Gluten-Free)</div>
+    <div class="item" draggable="true" data-type="none">Cheeseburger</div>
+    <div class="item" draggable="true" data-type="vegan">Vegan Tacos</div>
+  </div>
+
+  <div class="category" id="seasonal" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h3>Seasonal Availability</h3>
+  </div>
+</div>
+
+<script>
+  const items = document.querySelectorAll(".item");
+  items.forEach(item => {
+    item.addEventListener("dragstart", drag);
+  });
+
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.outerHTML);
+    ev.target.remove(); // remove item from original list
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    const data = ev.dataTransfer.getData("text");
+    ev.target.innerHTML += data;
+    applyFilter(); // reapply filter if needed
+  }
+
+  function applyFilter() {
+    const filter = document.getElementById("filter").value;
+    const allItems = document.querySelectorAll(".item");
+
+    allItems.forEach(item => {
+      const type = item.dataset.type;
+      if (filter === "all" || type === filter) {
+        item.style.display = "block";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kitchen Tickets</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      padding: 20px;
+    }
+
+    .kds-container {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .order {
+      border: 2px solid #333;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+
+    .allergy {
+      color: red;
+      font-weight: bold;
+    }
+
+    .btn {
+      background: #007bff;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+<div class="kds-container">
+  <h2>Kitchen Display System</h2>
+  
+  <div class="order" id="order1">
+    <p><strong>Dish:</strong> Chicken Curry</p>
+    <p><strong>Modifier:</strong> Spicy</p>
+    <p class="allergy" id="allergy1">NO NUTS</p>
+    <button class="btn" onclick="voidOrder('order1')">Void Order</button>
+  </div>
+  
+  <div class="order" id="order2">
+    <p><strong>Dish:</strong> Pasta Alfredo</p>
+    <p><strong>Modifier:</strong> Extra Cheese</p>
+    <p id="allergy2">(No allergy warning)</p>
+    <button class="btn" onclick="voidOrder('order2')">Void Order</button>
+  </div>
+</div>
+
+<script>
+  function voidOrder(orderId) {
+    let confirmVoid = confirm("Do you want to void this order? Manager approval required.");
+    if (confirmVoid) {
+      document.getElementById(orderId).style.display = 'none';
+      alert("Order " + orderId + " has been voided.");
+    }
+  }
+</script>
+
+</body>
+</html>
